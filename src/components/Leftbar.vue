@@ -2,11 +2,11 @@
   <div id="leftbar">
     <nav>
       <ol>
-        <li v-for="(item,index) in resume.visibleItems" :class="{active: item === selected}" @click="selected = item">{{index}}</li>
+        <li v-for="(item,index) in resume.config" :class="{active: item.field === selected}" @click="selected = item.field">{{index}}</li>
       </ol>
     </nav>
     <ol class="panels">
-      <li v-for="item in resume.visibleItems" v-show="item === selected">{{resume[item]}}</li>
+      <li v-for="item in resume.config" v-show="item.field === selected">{{resume[item.field]}}</li>
     </ol>
   </div>
 </template>
@@ -16,10 +16,17 @@ export default {
   name: 'Leftbar',
   data(){
     return {
-      selected: 'bio',
+      selected: 'profile',
       resume: {
-        visibleItems: ['bio','work history','education','projects','awards','contacts','others'],
-        bio: {
+        config: [
+          {field: 'profile',icon:'id'},
+          {field: 'work history',icon:'work'},
+          {field: 'education',icon:'book'},
+          {field: 'projects',icon:'heart'},
+          {field: 'awards',icon:'cup'},
+          {field: 'contacts',icon:'phone'}
+        ],
+        profile: {
           name: '',
           city: '',
           title: ''
