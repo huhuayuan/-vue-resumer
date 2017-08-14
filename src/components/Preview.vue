@@ -12,9 +12,8 @@
 
 <style>
   #preview {
+    flex: 1;
     background: #fff;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
-    border-radius: 6px;
-    margin-left: 16px;
   }
 </style>

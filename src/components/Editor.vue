@@ -15,6 +15,5 @@ export default {
   #editor {
     background: #fff;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
-    border-radius: 6px;
   }
 </style>

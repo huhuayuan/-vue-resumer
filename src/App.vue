@@ -1,27 +1,30 @@
 <template>
   <div id="app">
-    <header>
-      <Topbar  class="topbar"/>
-    </header/>
+    <div class="leftbar">
+      <Leftbar />
+    </div>
     <main>
       <Editor class="editor"/>
-      <Preview class="preview"/>
+      <div class="content">
+        <header>
+          <Topbar  class="topbar"/>
+        </header/>
+        <Preview class="preview"/>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
+import Leftbar from './components/Leftbar'
 import Topbar from './components/Topbar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
 
 export default {
   name: 'app',
-  data: function(){
-    text: 'resumer'
-  },
   components: {
-    Topbar,Editor,Preview
+    Leftbar,Topbar,Editor,Preview
   }
 }
 </script>
@@ -30,8 +33,11 @@ export default {
 #app {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: #eaeaea;
+}
+.leftbar {
+  background-color: #323641;
 }
 .topbar {
   background: pink;
@@ -43,7 +49,11 @@ export default {
   /*max-width: 1400px;*/
   /*margin-top: 16px;
   margin-bottom: 16px;*/
-  padding: 16px;
+}
+main .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 main > .editor {
   width: 20em;
