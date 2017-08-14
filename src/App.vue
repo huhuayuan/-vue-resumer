@@ -20,11 +20,15 @@ import Leftbar from './components/Leftbar'
 import Topbar from './components/Topbar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
+import icons from './assets/icons'
 
 export default {
   name: 'app',
   components: {
     Leftbar,Topbar,Editor,Preview
+  },
+  created(){
+    document.body.insertAdjacentHTML('afterbegin', icons);
   }
 }
 </script>
