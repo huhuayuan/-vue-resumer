@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   #app {
     height: 100vh;
     display: flex;
@@ -66,6 +66,11 @@ export default {
   main > .preview {
     flex: 1;
     background: #777;
+  }
+  svg.icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
   }
 
 </style>
