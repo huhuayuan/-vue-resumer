@@ -30,38 +30,38 @@ export default {
 </script>
 
 <style>
-#app {
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  background: #eaeaea;
-}
-.leftbar {
-  background-color: #323641;
-}
-.topbar {
-  background: pink;
-}
-#app main {
-  display: flex;
-  flex-grow: 1;
-  min-width: 1024px;
-  /*max-width: 1400px;*/
-  /*margin-top: 16px;
-  margin-bottom: 16px;*/
-}
-main .content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-main > .editor {
-  width: 20em;
-  background: #444;
-}
-main > .preview {
-  flex: 1;
-  background: #777;
-}
+  #app {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background: #eaeaea;
+  }
+  .leftbar {
+    background-color: #323641;
+  }
+  .topbar {
+    background: pink;
+  }
+  #app main {
+    display: flex;
+    flex-grow: 1;
+    min-width: 1024px;
+    /*max-width: 1400px;*/
+    /*margin-top: 16px;
+    margin-bottom: 16px;*/
+  }
+  main .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  main > .editor {
+    width: 20em;
+    background: #444;
+  }
+  main > .preview {
+    flex: 1;
+    background: #777;
+  }
 
 </style>
