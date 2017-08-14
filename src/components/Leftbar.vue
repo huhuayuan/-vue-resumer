@@ -11,7 +11,16 @@
     </nav>
     <ol class="panels">
       <li v-for="item in resume.config" v-show="item.field === selected">
-        <div class="field" v-for="(value,key) in resume[item.field]">
+        <div v-if="resume[item.field] instanceof Array">
+          <div class="subitem" v-for="subitem in resume[item.field]">
+            <div class="field" v-for="(value,key) in subitem">
+              <label>{{key}}</label>
+              <input type="text" :value="value">
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div v-else class="field" v-for="(value,key) in resume[item.field]">
           <label>{{key}}</label>
           <input type="text" v-model="resume[item.field][key]">
         </div>
@@ -39,7 +48,27 @@ export default {
           name: '',
           city: '',
           title: ''
-        }
+        },
+        'work history': [
+          {company: 'AL',content: '我的第二份工作'},
+          {company: 'XL',content: '我的第一份工作'}
+        ],
+        education: [
+          {school: 'AL',content: '**学校'},
+          {school: 'XL',content: '**学校'}
+        ],
+        projects: [
+          {name: 'projectA',content: '文字'},
+          {name: 'projectB',content: '文字'}
+        ],
+        awards: [
+          {name: 'awardsA',content: '文字'},
+          {name: 'awardsB',content: '文字'}
+        ],
+        contacts: [
+          {contact: 'phone',content: '15513571357'},
+          {contact: 'qq',content: '584513000'}
+        ]
       }
     }
   }
@@ -89,5 +118,10 @@ export default {
         }
       }
     }
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 24px 0;
   }
 </style>
