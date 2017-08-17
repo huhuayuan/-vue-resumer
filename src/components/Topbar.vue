@@ -3,16 +3,30 @@
     <div class="wrapper">
       <span class="logo">Resumer</span>
       <div class="actions">
-        <button class="success">保存</button>
-        <button>预览</button>
+        <a class="button success" href="#" @click.prevent="signUpDialogVisible = true">注册</a>
+        <Dialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
+          这是替换的内容
+        </Dialog>
+        <a class="button" href="#">登录</a>
+        <button class="button success">保存</button>
+        <button class="button">预览</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Dialog from './Dialog'
 export default {
-  name: 'Topbar'
+  name: 'Topbar',
+  data(){
+    return {
+      signUpDialogVisible: false
+    }
+  },
+  components: {
+    Dialog
+  }
 }
 </script>
 
@@ -34,14 +48,21 @@ export default {
     }
   }
 
-  button {
-    padding: 6px 12px;
+  .button {
+    width: 60px;
+    height: 30px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 14px;
     background-color: #ccc;
     color: #333;
+
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
     &:hover {
       box-shadow: 1px 1px 1px rgba(0,0,0,.5);
     }

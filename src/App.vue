@@ -1,16 +1,16 @@
 <template>
-  <div id="app">
-    <div class="leftbar">
-      <Editor class="editor"/>
+  <div>
+    <div id="app">
+      <Editor class="leftbar"/>
+      <main>
+        <div class="content">
+          <header>
+            <Topbar class="topbar"/>
+          </header/>
+          <Preview class="preview"/>
+        </div>
+      </main>
     </div>
-    <main>
-      <div class="content">
-        <header>
-          <Topbar  class="topbar"/>
-        </header/>
-        <Preview class="preview"/>
-      </div>
-    </main>
   </div>
 </template>
 
@@ -29,6 +29,11 @@ export default {
   },
   created(){
     document.body.insertAdjacentHTML('afterbegin', icons);
+    let state = localStorage.getItem('state');
+    if(state){
+      state = JSON.parse(state);
+    }
+    this.$store.commit('ininState',state)
   }
 }
 </script>
@@ -41,7 +46,7 @@ export default {
     background: #eaeaea;
   }
   .leftbar {
-    background-color: #323641;
+    background-color: #5a6a7a;
     display: flex;
   }
   .topbar {
@@ -59,10 +64,6 @@ export default {
     display: flex;
     flex-direction: column;
     flex: 1;
-  }
-  main > .editor {
-    width: 20em;
-    background: #444;
   }
   main > .preview {
     flex: 1;

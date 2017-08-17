@@ -80,7 +80,7 @@ export default {
     .panels {
       overflow: auto;
       flex-grow: 1;
-      background: #272c34;
+      background: #e0eaec;
       >li {
         padding: 24px;
       }
@@ -88,7 +88,7 @@ export default {
     .field {
       >label {
         display: block;
-        color: #eee;
+        color: #788188;
       }
       input[type='text']{
         margin: 16px 0;
