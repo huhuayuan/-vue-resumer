@@ -3,10 +3,11 @@
     <div class="wrapper">
       <span class="logo">Resumer</span>
       <div class="actions">
+        <span>{{user}}</span>
         <a class="button success" href="#" @click.prevent="signUpDialogVisible = true">注册</a>
-        <Dialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
-          这是替换的内容
-        </Dialog>
+        <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
+          <SignUpForm @success="login($event)"/>
+        </MyDialog>
         <a class="button" href="#">登录</a>
         <button class="button success">保存</button>
         <button class="button">预览</button>
@@ -16,7 +17,8 @@
 </template>
 
 <script>
-import Dialog from './Dialog'
+import MyDialog from './MyDialog'
+import SignUpForm from './SignUpForm'
 export default {
   name: 'Topbar',
   data(){
@@ -24,8 +26,19 @@ export default {
       signUpDialogVisible: false
     }
   },
+  computed: {
+    user(){
+      return this.$store.state.user
+    }
+  },
   components: {
-    Dialog
+    MyDialog, SignUpForm
+  },
+  methods: {
+    login(user){
+      this.signUpDialogVisible = false;
+      this.$store.commit('setUser', user)
+    }
   }
 }
 </script>
