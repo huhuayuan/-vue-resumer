@@ -40,11 +40,11 @@ export default {
       user.setUsername(username);
       user.setPassword(password);
       user.signUp().then((loginedUser)=>{
-        console.log("loginedUser",loginedUser);
         // this.$emit('success',{
         //   username: loginedUser.attributes.username,
         // id: loginedUser.id
         // })
+        this.$emit('success',this.getAVUser())
       },(error)=>{
         // alert(JSON.stringify(error))
         this.getErrorMessage(error)

@@ -20,6 +20,8 @@ import Editor from './components/Editor'
 import Preview from './components/Preview'
 import icons from './assets/icons'
 import store from './store/index'
+import AV from './lib/leancloud'
+import getAVUser from './lib/getAVUser'
 
 export default {
   name: 'app',
@@ -34,6 +36,7 @@ export default {
       state = JSON.parse(state);
     }
     this.$store.commit('ininState',state)
+    this.$store.commit('setUser',getAVUser())
   }
 }
 </script>
