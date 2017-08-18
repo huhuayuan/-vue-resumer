@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="signUp">
+    <form @submit.prevent="signIn">
       <div class="row">
         <label>用户名</label>
         <input type="text" v-model="formData.username" required>
@@ -22,7 +22,7 @@ import AV from '../lib/leancloud'
 import getAVUser from '../lib/getAVUser'
 import getErrorMessage from '../lib/getErrorMessage'
 export default {
-  name: 'SignUpForm',
+  name: 'SignInForm',
   data(){
     return {
       formData: {
@@ -35,19 +35,12 @@ export default {
   created(){
   },
   methods: {
-    signUp(){
+    signIn(){
       let {username,password} = this.formData;
-      var user = new AV.User();
-      user.setUsername(username);
-      user.setPassword(password);
-      user.signUp().then(()=>{
-        // this.$emit('success',{
-        //   username: loginedUser.attributes.username,
-        // id: loginedUser.id
-        // })
+      AV.User.logIn(username,password).then(()=>{
         this.$emit('success',getAVUser())
+        // this.$store.commit('setUser',getAVUser())
       },(error)=>{
-        // alert(JSON.stringify(error))
         this.errorMessage = this.getErrorMessage(error)
       })
     }

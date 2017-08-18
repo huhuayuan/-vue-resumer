@@ -9,27 +9,32 @@
         </div>
         <div v-else>
           <a class="button success" href="#" @click.prevent="signUpDialogVisible = true">注册</a>
-          <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
-            <SignUpForm @success="signIn($event)"/>
-          </MyDialog>
-          <a class="button" href="#">登录</a>
+          <a class="button" href="#" @click.prevent="signInDialogVisible = true">登录</a>
         </div>
         <button class="button success">保存</button>
         <button class="button">预览</button>
       </div>
     </div>
+    <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
+      <SignUpForm @success="signIn($event)"/>
+    </MyDialog>
+    <MyDialog title="登录" :visible="signInDialogVisible" @close="signInDialogVisible = false">
+      <SignInForm @success="signIn($event)"/>
+    </MyDialog>
   </div>
 </template>
 
 <script>
 import MyDialog from './MyDialog'
 import SignUpForm from './SignUpForm'
+import SignInForm from './SignInForm'
 import AV from '../lib/leancloud'
 export default {
   name: 'Topbar',
   data(){
     return {
-      signUpDialogVisible: false
+      signUpDialogVisible: false,
+      signInDialogVisible: false
     }
   },
   computed: {
@@ -41,7 +46,7 @@ export default {
     }
   },
   components: {
-    MyDialog, SignUpForm
+    MyDialog, SignUpForm, SignInForm
   },
   methods: {
     // login(user){
@@ -50,6 +55,7 @@ export default {
     // },
     signIn(user){
       this.signUpDialogVisible = false;
+      this.signInDialogVisible = false;
       this.$store.commit('setUser', user)
     },
     signOut(){

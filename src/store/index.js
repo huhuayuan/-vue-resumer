@@ -7,8 +7,8 @@ export default new Vuex.Store({
   state: {
     selected: 'profile',
     user: {
-      id: '1',
-      username: '123'
+      id: '',
+      username: ''
     },
     resume: {
       config: [
@@ -57,7 +57,7 @@ export default new Vuex.Store({
       Object.assign(state,payload)
     },
     removeUser(state){
-      state.user.id = null
+      state.user.id = ''
     },
     setUser(state,payload){
       Object.assign(state.user,payload)
