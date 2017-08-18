@@ -56,6 +56,9 @@ export default new Vuex.Store({
     ininState(state,payload){
       Object.assign(state,payload)
     },
+    removeUser(state){
+      state.user.id = null
+    },
     setUser(state,payload){
       Object.assign(state.user,payload)
     },
