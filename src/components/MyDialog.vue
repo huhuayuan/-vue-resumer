@@ -28,10 +28,15 @@ export default {
 <style lang="scss">
   .cover {
     position: fixed;
-    background: -webkit-linear-gradient(45deg, #74ebd5, #9face6);
-    background: -o-linear-gradient(45deg, #74ebd5, #9face6);
-    background: -moz-linear-gradient(45deg, #74ebd5, #9face6);
-    background: linear-gradient(45deg, #74ebd5, #9face6);
+    background: -webkit-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    background: -o-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    background: -moz-linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    // background: -webkit-linear-gradient(45deg, #74ebd5, #9face6);
+    // background: -o-linear-gradient(45deg, #74ebd5, #9face6);
+    // background: -moz-linear-gradient(45deg, #74ebd5, #9face6);
+    // background: linear-gradient(45deg, #74ebd5, #9face6);
+
     top: 0;
     bottom: 0;
     left: 0;
@@ -45,9 +50,18 @@ export default {
     min-height: 4em;
     min-width: 10em;
     >header {
+      text-align: center;
       padding: 16px;
-      display: flex;
-      justify-content: space-between;
+      color: #3e9ed0;
+      font-size: 20px;
+      // display: flex;
+      // justify-content: space-between;
+      // background-color: #7cb6d0;
+      .close {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
     }
     >main {
       padding: 16px;
